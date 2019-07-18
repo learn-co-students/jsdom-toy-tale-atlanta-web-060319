@@ -47,6 +47,16 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "",
+      "image": "",
+      "id": 9
+    },
+    {
+      "name": "kalfinator",
+      "image": "https://d3nevzfk7ii3be.cloudfront.net/igi/JPpjbao64ZTJAPmV.medium",
+      "id": 10
     }
   ]
 }
