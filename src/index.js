@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", getToysAndDisplay)
 let form = document.querySelector(".add-toy-form")
 form.addEventListener("submit", handleSubmit)
 
-let button = document.querySelector(".like-btn")
-button.addEventListener("click", handleLike)
-
 addBtn.addEventListener('click', () => {
   // hide & seek with the form
   addToy = !addToy
@@ -55,12 +52,15 @@ function toysDisplay(jsoArr) {
 		likebtn.className = "like-btn"
 		likebtn.innerText = "Like"
 
+
 		toyCard.appendChild(h2)
 		toyCard.appendChild(image)
 		toyCard.appendChild(likes)
 		toyCard.appendChild(likebtn)
 
 		toyCollection.appendChild(toyCard)
+		let button = document.getElementById(`${toy.id}`).querySelector(".like-btn")
+		button.addEventListener("click", handleLike)
 	})
 }
 
@@ -91,15 +91,31 @@ function handleSubmit(event) {
 	event.target.reset()
 }
 
-function handleLike() {
+function handleLike(event) {
+	let newlike = parseInt(event.target.parentNode.querySelector("p").innerText) + 1
+	let thistoyid = event.target.parentNode.id
+
+	let thistoynewlike = {
+		likes: newlike
+	}
+
 	let config = {
         method: 'PATCH',
         headers:{
             'Content-Type': 'application/json',
             "Accept": "application/json"
         },
-        body:JSON.stringify(newtoy)
+        body:JSON.stringify(thistoynewlike)
     }
+
+    fetch(`http://localhost:3000/toys/${thistoyid}`, config)
+    	.then((response) => response.json())
+    	.then((jso) => updateLike(jso))
+}
+
+function updateLike(toy) {
+	let thistoycardlike = document.getElementById(`${toy.id}`).querySelector("p")
+	thistoycardlike.innerText = toy.likes
 }
 
 
