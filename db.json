@@ -47,6 +47,17 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Stretch",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71%2BYcB39F%2BL._SL1500_.jpg",
+      "id": 9
+    },
+    {
+      "name": "Z-BOts",
+      "image": "https://preview.redd.it/n1tyhkg6dlo01.jpg?width=1024&auto=webp&s=c7a032ed3ed001922297b00332f1363cd0134d46",
+      "likes": 2,
+      "id": 10
     }
   ]
 }
